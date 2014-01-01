@@ -52,9 +52,9 @@ prettyPrinter dbus = defaultPP
     , ppTitle    = pangoSanitize
     , ppVisible  = pangoColor "green" . wrap "[" "]" . pangoSanitize
     , ppCurrent  = pangoColor "yellow" . wrap "(" ")" . pangoSanitize
-    , ppHidden   = const ""
+    , ppHidden   = pangoColor "gray" . pangoSanitize
     , ppUrgent   = pangoColor "red"
-    , ppLayout   = const ""
+    , ppLayout   = pangoColor "gray" . wrap "|" "|" . pangoSanitize
     , ppSep      = " "
     }
 
