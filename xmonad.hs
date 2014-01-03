@@ -11,6 +11,9 @@ import XMonad.Util.EZConfig
 import XMonad.Actions.SpawnOn
 import XMonad.Actions.GridSelect
 
+-- allow chrome fullscreen
+import XMonad.Hooks.EwmhDesktops
+
 import qualified DBus as D
 import qualified DBus.Client as D
 import qualified Codec.Binary.UTF8.String as UTF8
@@ -40,6 +43,8 @@ main = do
                           >> spawnHere "guake"
                           >> setWMName "LG3D" -- matlab fix
          , manageHook = manageDocks <+> manageSpawn <+> myManageHook <+> manageHook xfceConfig
+         -- chrome fullscreen
+         , handleEventHook = fullscreenEventHook
          }
          `additionalKeysP`
          [ ("M-p", spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\""),
