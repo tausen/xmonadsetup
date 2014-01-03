@@ -55,8 +55,8 @@ prettyPrinter :: D.Client -> PP
 prettyPrinter dbus = defaultPP
     { ppOutput   = dbusOutput dbus
     , ppTitle    = pangoSanitize
-    , ppVisible  = pangoColor "green" . wrap "[" "]" . pangoSanitize
-    , ppCurrent  = pangoColor "yellow" . wrap "(" ")" . pangoSanitize
+    , ppVisible  = pangoColor "green" . wrap "(" ")" . pangoSanitize
+    , ppCurrent  = pangoColor "yellow" . wrap "[" "]" . pangoSanitize
     , ppHidden   = pangoColor "gray" . pangoSanitize
     , ppUrgent   = pangoColor "red"
     , ppLayout   = pangoColor "gray" . wrap "|" "|" . pangoSanitize
