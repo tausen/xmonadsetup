@@ -25,6 +25,8 @@ myManageHook = composeAll
        , className =? "Tomboy" --> doFloat
        , className =? "Gbase"  --> doFloat
        , className =? "Guake" --> doFloat
+       -- prevent xfce notifications from stealing focus
+       , className =? "Xfce4-notifyd" --> doIgnore
        ]
 
 main :: IO ()
