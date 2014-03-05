@@ -27,6 +27,8 @@ myManageHook = composeAll
        , className =? "Guake" --> doFloat
        -- prevent xfce notifications from stealing focus
        , className =? "Xfce4-notifyd" --> doIgnore
+       -- automatically move all ipython plot windows to the test workspace (great for dual monitor setups)
+       , className =? "Ipython" --> doShift "test"
        ]
 
 main :: IO ()
