@@ -39,9 +39,9 @@ main = do
          , modMask    = mod4Mask
          , workspaces = myWorkspaces
          , startupHook =  spawnHere "tomboy"
-                          >> spawnOn "im" "sleep 8 && xchat --minimize=2" 
+                          >> spawnOn "im" "sleep 8 && hexchat --minimize=2" 
                           >> spawnOn "im" "sleep 8 && skype" -- sleeps here to ensure xchat and skype are added to the indicator area
-                          >> spawnHere "insync start"
+                          >> spawnHere "sleep 8 && insync start"
                           >> spawnHere "guake"
                           >> setWMName "LG3D" -- matlab fix
          , manageHook = manageDocks <+> manageSpawn <+> myManageHook <+> manageHook xfceConfig
