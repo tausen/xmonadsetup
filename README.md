@@ -34,11 +34,17 @@ Then just add the XMonad log applet to your panel.
 
 xmonad.hs
 ---------
+##### If you have your own xmonad.hs and wish to add xfce capabilities
+
 Grab the sample xmonad.hs from https://github.com/alexkay/xmonad-log-applet/blob/master/xmonad.hs and replace:
 `import XMonad.Config.Gnome` with `import XMonad.Config.Xfce`
 and
 `xmonad $ gnomeConfig` with `xmonad $ xfceConfig`
 
-Then merge with your xmonad.hs or just grab xmonad.hs from this repo and start from there
+Then merge with your xmonad.hs.
+
+##### If you're starting from scratch or wish to try out my xmonad.hs
+
+Just grab xmonad.hs from this repo and start from there
 
 
