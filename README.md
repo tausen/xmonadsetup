@@ -45,6 +45,10 @@ Then merge with your xmonad.hs.
 
 ##### If you're starting from scratch or wish to try out my xmonad.hs
 
-Just grab xmonad.hs from this repo and start from there
+Just grab xmonad.hs from this repo and start from there.
 
+Note that I've bound a key to open dmenu, which will obviously only work with dmenu installed:
+```
+sudo apt-get install suckless-tools
+```
 
