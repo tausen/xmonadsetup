@@ -34,6 +34,8 @@ Then just add the XMonad log applet to your panel.
 
 xmonad.hs
 ---------
+Xmonad is configured through ~/.xmonad/xmonad.hs
+
 ##### If you have your own xmonad.hs and wish to add xfce capabilities
 
 Grab the sample xmonad.hs from https://github.com/alexkay/xmonad-log-applet/blob/master/xmonad.hs and replace:
