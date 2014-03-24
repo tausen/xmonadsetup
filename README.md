@@ -3,7 +3,14 @@ xfce+xmonad in xubuntu
 
 Dependencies
 ------------
-sudo apt-get install libglib2.0-dev libdbus-glib-1-dev xfce4-panel-dev
+```
+sudo apt-get install libglib2.0-dev libdbus-glib-1-dev xfce4-panel-dev xmonad
+```
+Might also need (not sure whether this ships with xmonad):
+```
+sudo apt-get install cabal-install
+```
+
 
 ### DBus:
 ```
