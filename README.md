@@ -54,3 +54,8 @@ Note that I've bound a key to open dmenu, which will obviously only work with dm
 sudo apt-get install suckless-tools
 ```
 
+Setting up xfce
+---------------
+Follow the steps in under "Configuring XMonad to work with Xfce" to set up xfce: http://www.haskell.org/haskellwiki/Xmonad/Using_xmonad_in_XFCE
+
+That should be all.
