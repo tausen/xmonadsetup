@@ -56,6 +56,6 @@ sudo apt-get install suckless-tools
 
 Setting up xfce
 ---------------
-Follow the steps in under "Configuring XMonad to work with Xfce" to set up xfce: http://www.haskell.org/haskellwiki/Xmonad/Using_xmonad_in_XFCE
+Follow the steps under "Configuring XMonad to work with Xfce" to set up xfce: http://www.haskell.org/haskellwiki/Xmonad/Using_xmonad_in_XFCE
 
 That should be all.
