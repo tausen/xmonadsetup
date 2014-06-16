@@ -18,6 +18,9 @@ import qualified DBus as D
 import qualified DBus.Client as D
 import qualified Codec.Binary.UTF8.String as UTF8
 
+-- toggle border key
+import XMonad.Actions.NoBorders
+
 myWorkspaces    = ["web","code","test","im","term","6","7","8","9"]
 
 myManageHook = composeAll
@@ -56,6 +59,7 @@ main = do
          `additionalKeysP`
          [ ("M-p", spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\""),
            ("M-C-e", spawn "emacsclient -c -a ''"),
+           ("M-t", withFocused toggleBorder),
            ("M-g", goToSelected defaultGSConfig) ]
 
 prettyPrinter :: D.Client -> PP
