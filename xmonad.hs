@@ -45,6 +45,9 @@ main = do
                           >> spawnOn "im" "sleep 8 && skype" -- sleeps here to ensure xchat and skype are added to the indicator area
                           >> spawnHere "sleep 8 && insync start"
                           >> spawnHere "guake"
+                          -- couple of key remaps handy with the t430s
+                          -- >> spawnHere "/usr/bin/setxkbmap -option 'ctrl:nocaps'" -- remap caps lock to ctrl
+                          -- >> spawnHere "/usr/bin/xmodmap -e 'keycode 107 = Menu'" -- remap print screen to context menu
                           >> setWMName "LG3D" -- matlab fix
          , manageHook = manageDocks <+> manageSpawn <+> myManageHook <+> manageHook xfceConfig
          -- chrome fullscreen
