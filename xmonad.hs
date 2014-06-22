@@ -59,7 +59,7 @@ main = do
          `additionalKeysP`
          [ ("M-p", spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\""),
            ("M-C-e", spawn "emacsclient -c -a ''"),
-           ("M-t", withFocused toggleBorder),
+           ("M-y", withFocused toggleBorder),
            ("M-g", goToSelected defaultGSConfig) ]
 
 prettyPrinter :: D.Client -> PP
