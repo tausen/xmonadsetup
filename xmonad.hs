@@ -23,15 +23,25 @@ import XMonad.Actions.NoBorders
 
 myWorkspaces    = ["web","code","test","im","term","6","7","8","9"]
 
+-- check window class using: xprop | grep -i class
+
 myManageHook = composeAll
        [ className =? "Gimp"   --> doFloat
        , className =? "Tomboy" --> doFloat
        , className =? "Gbase"  --> doFloat
-       , className =? "Guake" --> doFloat
+       , className =? "Main.py" --> doFloat -- guake
+       -- xfce whisker menu
+       , className =? "Wrapper-1.0" --> doFloat
+       -- automatically move all ipython plot windows to the test workspace (great for dual monitor setups)
+       , className =? "Tk" --> doShift "test" 
+       , className =? "Ipython" --> doShift "test"
        -- prevent xfce notifications from stealing focus
        , className =? "Xfce4-notifyd" --> doIgnore
-       -- automatically move all ipython plot windows to the test workspace (great for dual monitor setups)
-       , className =? "Ipython" --> doShift "test"
+       , className =? "evolution-alarm-notify" --> doFloat
+       , className =? "Evolution-alarm-notify" --> doFloat
+       -- fix disappearing popups in Saleae Logic gui
+       , title =? "Saleae Logic Software" --> doF (W.shift "5:dls")
+       , title =? "Logic" --> doIgnore
        ]
 
 main :: IO ()
@@ -40,24 +50,24 @@ main = do
     getWellKnownName dbus
     xmonad $ xfceConfig
          { logHook = dynamicLogWithPP (prettyPrinter dbus)
-         , terminal   = "xfce4-terminal"
+         , terminal   = "gnome-terminal"
          , modMask    = mod4Mask
          , workspaces = myWorkspaces
          , startupHook =  spawnHere "tomboy"
-                          >> spawnOn "im" "sleep 8 && hexchat --minimize=2" 
-                          >> spawnOn "im" "sleep 8 && skype" -- sleeps here to ensure xchat and skype are added to the indicator area
-                          >> spawnHere "sleep 8 && insync start"
-                          >> spawnHere "guake"
+                          -- >> spawnOn "im" "sleep 8 && hexchat --minimize=2" 
+                          -- >> spawnOn "im" "sleep 8 && skype" -- sleeps here to ensure xchat and skype are added to the indicator area
+                          -- >> spawnHere "sleep 8 && insync start"
+                          -- >> spawnHere "guake"
                           -- couple of key remaps handy with the t430s
                           -- >> spawnHere "/usr/bin/setxkbmap -option 'ctrl:nocaps'" -- remap caps lock to ctrl
-                          -- >> spawnHere "/usr/bin/xmodmap -e 'keycode 107 = Menu'" -- remap print screen to context menu
+                          >> spawnHere "/usr/bin/xmodmap -e 'keycode 107 = Menu'" -- remap print screen to context menu
                           >> setWMName "LG3D" -- matlab fix
          , manageHook = manageDocks <+> manageSpawn <+> myManageHook <+> manageHook xfceConfig
          -- chrome fullscreen
          , handleEventHook = fullscreenEventHook
          }
          `additionalKeysP`
-         [ ("M-p", spawn "exe=`dmenu_path | dmenu` && eval \"exec $exe\""),
+         [ ("M-p", spawn "exe=`dmenu_run` && eval \"exec $exe\""),
            ("M-C-e", spawn "emacsclient -c -a ''"),
            ("M-y", withFocused toggleBorder),
            ("M-g", goToSelected defaultGSConfig) ]
