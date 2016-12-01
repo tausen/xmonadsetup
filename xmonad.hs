@@ -50,7 +50,7 @@ main = do
     getWellKnownName dbus
     xmonad $ xfceConfig
          { logHook = dynamicLogWithPP (prettyPrinter dbus)
-         , terminal   = "gnome-terminal"
+         , terminal   = "xfce4-terminal"
          , modMask    = mod4Mask
          , workspaces = myWorkspaces
          , startupHook =  spawnHere "tomboy"
