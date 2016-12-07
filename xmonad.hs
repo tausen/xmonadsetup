@@ -1,5 +1,6 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.SetWMName
 import XMonad.Hooks.ManageDocks
 import XMonad.Actions.SpawnOn
 import XMonad.Util.Run(spawnPipe)
@@ -41,6 +42,7 @@ main = do
         { manageHook = manageDocks <+> myManageHook <+> manageHook defaultConfig
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         , workspaces = myWorkspaces
+	, startupHook = setWMName "LG3D" -- matlab fix
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
                         , ppTitle = xmobarColor "green" "" . shorten 50
