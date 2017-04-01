@@ -43,6 +43,7 @@ main = do
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         , workspaces = myWorkspaces
 	, startupHook = setWMName "LG3D" -- matlab fix
+                        >> spawnHere "xinput disable 10" -- disable touchpad
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
                         , ppTitle = xmobarColor "green" "" . shorten 50
@@ -56,4 +57,5 @@ main = do
         , ((0, xK_Print), spawn "scrot")
         , ((mod4Mask .|. controlMask, xK_k), spawn "~/shellscripts/setlayout.sh")
         , ((mod4Mask .|. controlMask, xK_e), spawn "emacsclient -c -a ''")
+        , ((mod4Mask .|. controlMask, xK_i), spawn "xcalib -invert -alter")
         ]
