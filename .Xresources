@@ -1,0 +1,6 @@
+! after editing .Xresources it may be reloaded with:
+! xrdb -merge ~/.Xresources
+
+XTerm*faceName: Monospace Regular
+XTerm*faceSize: 11
+XTerm*saveLines: 16384
