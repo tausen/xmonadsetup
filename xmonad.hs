@@ -33,6 +33,7 @@ myManageHook = composeAll
        , className =? "Xfce4-notifyd" --> doIgnore
        , className =? "evolution-alarm-notify" --> doFloat
        , className =? "Evolution-alarm-notify" --> doFloat
+       , className =? "Wfica_Seamless" --> doFloat
        -- fix disappearing popups in Saleae Logic gui
        , title =? "Saleae Logic Software" --> doF (W.shift "5:dls")
        , title =? "Logic" --> doIgnore
@@ -85,6 +86,8 @@ main = do
         , ((mod4Mask .|. controlMask, xK_i), spawn "xcalib -invert -alter")
         , ((mod4Mask .|. shiftMask, xK_t), scratchTerm)
         , ((mod4Mask .|. shiftMask, xK_m), scratchMixer)
+        , ((mod4Mask, xK_y), withFocused toggleBorder)
+        , ((mod4Mask, xK_b), sendMessage ToggleStruts)
         ]
         where
           scratchTerm  = namedScratchpadAction myScratchPads "terminal"
