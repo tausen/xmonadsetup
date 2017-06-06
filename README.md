@@ -54,3 +54,17 @@ Setting up xfce
 Follow the steps under "Configuring XMonad to work with Xfce" to set up xfce: http://www.haskell.org/haskellwiki/Xmonad/Using_xmonad_in_XFCE
 
 That should be all.
+
+non-xfce (xmobar branch)
+------------------------
+Install xmonad, xmonad-contrib and xmobar with cabal with something like:
+
+```
+cabal install --global xmonad-0.12
+cabal install --global xmonad-contrib-0.12
+cabal install --global -fwith_xft xmobar-0.24.3
+```
+
+Install session files from ubuntu-session-files.
+
+To make scratchpad work: put .Xresources in ~/ and run ```xrdb -merge ~/.Xresources```
