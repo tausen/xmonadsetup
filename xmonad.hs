@@ -21,6 +21,7 @@ myManageHook = composeAll
        , className =? "Tomboy" --> doFloat
        , className =? "Gbase"  --> doFloat
        , className =? "Main.py" --> doFloat -- guake
+       , className =? "Top_block.py" --> doFloat -- gnuradio
        -- xfce whisker menu
        , className =? "Wrapper-1.0" --> doFloat
        -- automatically move all ipython plot windows to the test workspace (great for dual monitor setups)
