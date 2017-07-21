@@ -88,6 +88,7 @@ main = do
         , ((mod4Mask .|. shiftMask, xK_m), scratchMixer)
         , ((mod4Mask, xK_y), withFocused toggleBorder)
         , ((mod4Mask, xK_b), sendMessage ToggleStruts)
+        , ((mod4Mask .|. shiftMask, xK_p), spawn "rofi -show run")
         ]
         where
           scratchTerm  = namedScratchpadAction myScratchPads "terminal"
