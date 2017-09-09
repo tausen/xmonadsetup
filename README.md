@@ -57,12 +57,17 @@ That should be all.
 
 non-xfce (xmobar branch)
 ------------------------
+Install libxpm:
+```
+sudo apt install libxpm-dev
+```
+
 Install xmonad, xmonad-contrib and xmobar with cabal with something like:
 
 ```
-cabal install --global xmonad-0.12
-cabal install --global xmonad-contrib-0.12
-cabal install --global -fwith_xft xmobar-0.24.3
+sudo cabal install --global xmonad-0.12
+sudo cabal install --global xmonad-contrib-0.12
+sudo cabal install --global -fwith_xft xmobar-0.24.3
 ```
 
 Install rofi:
