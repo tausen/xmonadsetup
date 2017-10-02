@@ -77,4 +77,9 @@ sudo apt install rofi
 
 Install session files from ubuntu-session-files.
 
-To make scratchpad work: put .Xresources in ~/ and run ```xrdb -merge ~/.Xresources```
+To make scratchpad work: put .Xresources in ~/ and run ```xrdb -merge ~/.Xresources```. Will also need to install tmux: ```sudo apt install tmux```.
+
+Note that I've bound a key to open dmenu, which will obviously only work with dmenu installed:
+```
+sudo apt-get install suckless-tools
+```
