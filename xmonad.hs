@@ -62,7 +62,7 @@ myScratchPads = [ NS "mixer" spawnMixer findMixer manageMixer
 
 main = do
     xmproc <- spawnPipe "~/.cabal/bin/xmobar /home/tausen/.xmonad/xmobar.hs"
-    xmonad $ defaultConfig
+    xmonad $ ewmh $ defaultConfig
         { manageHook = manageDocks <+> namedScratchpadManageHook myScratchPads <+> myManageHook <+> manageHook defaultConfig
         , terminal = myTerminal
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
