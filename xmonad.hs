@@ -8,6 +8,7 @@ import XMonad.Util.EZConfig
 import XMonad.Util.NamedScratchpad
 import qualified XMonad.StackSet as W
 import System.IO
+import XMonad.Layout.Gaps
 
 -- toggle border key
 import XMonad.Actions.NoBorders
@@ -65,7 +66,7 @@ main = do
     xmonad $ ewmh $ defaultConfig
         { manageHook = manageDocks <+> namedScratchpadManageHook myScratchPads <+> myManageHook <+> manageHook defaultConfig
         , terminal = myTerminal
-        , layoutHook = avoidStruts  $  layoutHook defaultConfig
+        , layoutHook = avoidStruts  $  gaps [(U, 0),(R, 0),(D, 0),(L, 0)] $ layoutHook defaultConfig
         , workspaces = myWorkspaces
         , startupHook = setWMName "LG3D" -- matlab fix
 --                      >> spawnHere "xinput disable 10" -- disable touchpad
@@ -89,6 +90,16 @@ main = do
         , ((mod4Mask, xK_y), withFocused toggleBorder)
         , ((mod4Mask, xK_b), sendMessage ToggleStruts)
         , ((mod4Mask .|. shiftMask, xK_p), spawn "rofi -show run")
+
+        , ((mod4Mask .|. controlMask, xK_g), sendMessage $ ToggleGaps)  -- toggle all gaps
+        , ((mod4Mask .|. controlMask, xK_d), sendMessage $ IncGap 5 R)  -- increment the right-hand gap
+        , ((mod4Mask .|. controlMask .|. shiftMask, xK_d), sendMessage $ DecGap 5 R)  -- increment the right-hand gap
+        , ((mod4Mask .|. controlMask, xK_a), sendMessage $ IncGap 5 L)
+        , ((mod4Mask .|. controlMask .|. shiftMask, xK_a), sendMessage $ DecGap 5 L)
+        , ((mod4Mask .|. controlMask, xK_w), sendMessage $ IncGap 5 U)
+        , ((mod4Mask .|. controlMask .|. shiftMask, xK_w), sendMessage $ DecGap 5 U)
+        , ((mod4Mask .|. controlMask, xK_s), sendMessage $ IncGap 5 D)
+        , ((mod4Mask .|. controlMask .|. shiftMask, xK_s), sendMessage $ DecGap 5 D)
         ]
         where
           scratchTerm  = namedScratchpadAction myScratchPads "terminal"
